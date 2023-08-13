@@ -1,9 +1,9 @@
 import React from 'react'
-import { Text, View, TextInput, StyleSheet } from 'react-native'
+import { View, TextInput, StyleSheet } from 'react-native'
 
 const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
     return (
-      <View styl={styles.container}>
+      <View style={styles.container}>
       <TextInput
         value={value}
         onChangeText={setValue}
@@ -15,18 +15,21 @@ const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
     );
   
 };
-
+ 
 const styles = StyleSheet.create ({
     container: {
         backgroundColor: 'white',
-        width: '100%',
+        width: '80%',
         borderColor: '#e8e8e8',
-        borderWidth: 1,
+        borderWidth: 2,
         borderRadius: 5,
+        padding: 10,
         paddingHorizontal: 10,
         marginVertical: 5,
     },
-    input: {},
+    input: {
+
+    },
 });
 
-export default CustomInput
+export default CustomInput;
