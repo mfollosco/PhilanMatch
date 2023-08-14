@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Text, SafeAreaView, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
-import logo from '../../assets/images/logo.jpg';
-import CustomInput from '../../components/CustomInput';
-import CustomButton from '../../components/CustomButton';
+import logo from '../../../assets/images/logo.jpg';
+import CustomInput from '../../components/CustomInput/indexCI';
+import CustomButton from '../../components/CustomButton/indexCB';
 
 const SignInScreen = () => {
   const [username, setUsername] = useState('');
@@ -24,12 +24,21 @@ const SignInScreen = () => {
 
   return (
       <ScrollView>
-      <SafeAreaView style={styles.root}>
+        <SafeAreaView style={styles.root}>
         <Image source={logo} style={[styles.logo, {height: height * 0.3}]} resizeMode="contain" />
        
 
-        <CustomInput placeholder="Username" value={username} setValue={setUsername}/>
-        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true}/>
+        <CustomInput 
+        placeholder="Username" 
+        value={username} 
+        setValue={setUsername}
+        />
+        <CustomInput 
+        placeholder="Password" 
+        value={password} 
+        setValue={setPassword} 
+        secureTextEntry={true}
+        />
         <CustomButton text="Sign In" onPress={onSignInPressed} />
         <CustomButton
           text="Forgot password?" 
@@ -42,7 +51,7 @@ const SignInScreen = () => {
           type="TERTIARY"  
         />
 
-      </SafeAreaView>
+        </SafeAreaView>
       </ScrollView>
     );
   

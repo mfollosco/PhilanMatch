@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import CustomInput from '../../components/CustomInput/indexCI';
+import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/indexCB';
 
 const SignUpScreen = () => {
@@ -30,6 +30,11 @@ const SignUpScreen = () => {
         
         <CustomButton text="Register" onPress={onRegisterPressed} />
 
+        <CustomButton
+          text="Forgot password?" 
+          onPress={onForgotPassswordPressed} 
+          type="TERTIARY"  
+        />
          <CustomButton
           text="Have an account? Sign in" 
           onPress={onSignInPress} 
