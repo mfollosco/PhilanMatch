@@ -4,19 +4,15 @@ import CustomInput from '../../components/CustomInput/indexCI';
 import CustomButton from '../../components/CustomButton/indexCB';
 import { useNavigation } from '@react-navigation/native';
 
-const ConfirmEmailScreen = () => {
+const ForgotPasswordScreen = () => {
 
-  const [code, setCode] = useState('');
-
+  const [username, setUsername] = useState('');
+  
   const navigation = useNavigation();
 
-  const onResendPress = () => {
-    console.warn('onResendPressed');
-  }; 
-  
-  const onConfirmrPressed = () => {
-    // console.warn('onConfirmPressed');
-    navigation.navigate('Home');
+  const onSendPressed = () => {
+    //console.warn('onSendPressed');
+    navigation.navigate('NewPassword');
   }; 
 
   const onSignInPress = () => {
@@ -27,22 +23,21 @@ const ConfirmEmailScreen = () => {
   return (
       <ScrollView>
       <SafeAreaView style={styles.root}>
-        <Text style={styles.title}>Confirm your email</Text>
+        <Text style={styles.title}>Reset your password</Text>
        
-        <CustomInput placeholder="Enter your confirmation code" value={code} setValue={setCode} secureTextEntry={true}/>
-
-        <CustomButton
-          text="Confirm" 
-          onPress={onConfirmrPressed}  
+        <CustomInput 
+        placeholder="Username" 
+        value={username} 
+        setValue={setUsername} 
+        secureTextEntry={true}
         />
 
         <CustomButton
-          text="Resend code" 
-          onPress={onResendPress}  
-          type="SECONDARY"
+          text="Send" 
+          onPress={onSendPressed}  
         />
 
-<CustomButton
+        <CustomButton
           text="Back to Sign In" 
           onPress={onSignInPress}  
           type="TERTIARY"
@@ -76,6 +71,6 @@ const styles = StyleSheet.create({
       marginBottom: 20,
     },
 });
-export default ConfirmEmailScreen;
+export default ForgotPasswordScreen;
 
 // credit to https://youtu.be/ALnJLbjI7EY

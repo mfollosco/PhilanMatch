@@ -4,18 +4,15 @@ import CustomInput from '../../components/CustomInput/indexCI';
 import CustomButton from '../../components/CustomButton/indexCB';
 import { useNavigation } from '@react-navigation/native';
 
-const ConfirmEmailScreen = () => {
+const NewPasswordScreen = () => {
 
   const [code, setCode] = useState('');
+  const [newPassword, setNewPassword] = useState('');
 
   const navigation = useNavigation();
-
-  const onResendPress = () => {
-    console.warn('onResendPressed');
-  }; 
   
-  const onConfirmrPressed = () => {
-    // console.warn('onConfirmPressed');
+  const onSubmitPressed = () => {
+    //console.warn('onSubmitPressed');
     navigation.navigate('Home');
   }; 
 
@@ -27,22 +24,28 @@ const ConfirmEmailScreen = () => {
   return (
       <ScrollView>
       <SafeAreaView style={styles.root}>
-        <Text style={styles.title}>Confirm your email</Text>
+        <Text style={styles.title}>Reset your password</Text>
        
-        <CustomInput placeholder="Enter your confirmation code" value={code} setValue={setCode} secureTextEntry={true}/>
-
-        <CustomButton
-          text="Confirm" 
-          onPress={onConfirmrPressed}  
+        <CustomInput 
+        placeholder="Code" 
+        value={code} 
+        setValue={setCode} 
+        secureTextEntry={true}
+        />
+        
+        <CustomInput 
+        placeholder="Enter your new password" 
+        value={newPassword} 
+        setValue={setNewPassword} 
+        secureTextEntry={true}
         />
 
         <CustomButton
-          text="Resend code" 
-          onPress={onResendPress}  
-          type="SECONDARY"
+          text="Submit" 
+          onPress={onSubmitPressed}  
         />
 
-<CustomButton
+        <CustomButton
           text="Back to Sign In" 
           onPress={onSignInPress}  
           type="TERTIARY"
@@ -76,6 +79,6 @@ const styles = StyleSheet.create({
       marginBottom: 20,
     },
 });
-export default ConfirmEmailScreen;
+export default NewPasswordScreen;
 
 // credit to https://youtu.be/ALnJLbjI7EY

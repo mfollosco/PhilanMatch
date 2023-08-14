@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import CustomInput from '../../components/CustomInput/indexCI';
 import CustomButton from '../../components/CustomButton/indexCB';
+import { useNavigation } from '@react-navigation/native';
 
 const SignUpScreen = () => {
   const [username, setUsername] = useState('');
@@ -9,12 +10,16 @@ const SignUpScreen = () => {
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
 
+  const navigation = useNavigation();
+
   const onRegisterPressed = () => {
-    console.warn('onRegisterPressed');
+    //console.warn('onRegisterPressed');
+    navigation.navigate('ConfirmEmail');
   }; 
   
   const onSignInPress = () => {
-    console.warn('onSignInPress');
+    //console.warn('onSignInPress');
+    navigation.navigate('SignIn');
   }; 
 
   return (
@@ -60,6 +65,8 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       color: '#051C60',
       margin: 10,
+      marginTop: 40,
+      marginBottom: 30,
     },
 });
 export default SignUpScreen;

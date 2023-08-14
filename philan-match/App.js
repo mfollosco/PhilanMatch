@@ -1,14 +1,12 @@
 //import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
-//import SignInScreen from './src/screens/SignInScreen';
-import SignUpScreen from './src/screens/SignUpScreen/indexSU';
-//import ConfirmEmailScreen from './src/screens/ConfirmEmailScreen/indexCE';
+import Navigation from './src/navigation/indexNav';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <SignUpScreen/>
+      <Navigation/>
     </SafeAreaView>
   );
 };

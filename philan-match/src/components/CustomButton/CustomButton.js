@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     container: {
 
         width: '80%',
-        marginVertical: 15,
+        marginVertical: 10,
 
         alignItems: 'center',
         borderRadius: 5,
@@ -23,6 +23,13 @@ const styles = StyleSheet.create({
     container_PRIMARY: {
         backgroundColor: '#1D8169',
         padding: 15,
+        marginTop: 20,
+    },
+
+    container_SECONDARY: {
+        borderColor: '#1D8169',
+        padding: 15,
+        borderWidth: 2,
     },
 
     container_TERTIARY: { },
@@ -31,6 +38,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         padding: 2
+    },
+
+    text_SECONDARY: {
+        color: '#1D8169',
     },
 
     text_TERTIARY: {
