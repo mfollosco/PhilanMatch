@@ -6,12 +6,13 @@ import CustomButton from '../../components/CustomButton/indexCB';
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../../../config'
 
-const SignInScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const {height} = useWindowDimensions();
-  const navigation = useNavigation();
+const SignInScreen = () => {
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+
+  // const {height} = useWindowDimensions();
+  // const navigation = useNavigation();
 
   signInUser = async (email, password) => {
       try {

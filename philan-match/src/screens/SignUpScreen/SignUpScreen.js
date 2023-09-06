@@ -1,52 +1,74 @@
-import React, {useState} from 'react';
+import React, { Component } from 'react';
 import { Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import CustomInput from '../../components/CustomInput/indexCI';
 import CustomButton from '../../components/CustomButton/indexCB';
 import { useNavigation } from '@react-navigation/native';
+import { firebase } from '../../../config';
 
-const SignUpScreen = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordRepeat, setPasswordRepeat] = useState('');
+const navigation = useNavigation();
 
-  const navigation = useNavigation();
+export class SignUpScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
 
-  const onRegisterPressed = () => {
+    }
+    this.onRegisterPressed.bind(this)
+  }
+
+  // const [username, setUsername] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [passwordRepeat, setPasswordRepeat] = useState('');
+
+
+
+  onRegisterPressed() {
     //console.warn('onRegisterPressed');
-    navigation.navigate('ConfirmEmail');
+    // navigation.navigate('ConfirmEmail');
+    const { email, password } = this.state;
+    firebase.auth().createUserWithEmailAndPassword(email,password)
+    .then((result) => {
+      console.log(result)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }; 
   
-  const onSignInPress = () => {
-    //console.warn('onSignInPress');
-    navigation.navigate('SignIn');
-  }; 
-
+  // onSignInPress = () => {
+  //   //console.warn('onSignInPress');
+  //   navigation.navigate('SignIn');
+  // }; 
+  render(){
   return (
       <ScrollView>
       <SafeAreaView style={styles.root}>
         <Text style={styles.title}>Create an account</Text>
        
 
-        <CustomInput placeholder="Username" value={username} setValue={setUsername}/>
-        <CustomInput placeholder="Email" value={email} setValue={setEmail}/>
-        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true}/>
-        <CustomInput placeholder="Repeat Password" value={passwordRepeat} setValue={setPasswordRepeat} secureTextEntry={true}/>
+        <CustomInput placeholder="Username" onChangeText={(username) => this.setState({ username })}/>
+        <CustomInput placeholder="Email" onChangeText={(email) => this.setState({ email })}/>
+        <CustomInput placeholder="Password" onChangeText={(password) => this.setState({ password })} secureTextEntry={true}/>
+        <CustomInput placeholder="Repeat Password" onChangeText={(passwordRepeat) => this.setState({ passwordRepeat })} secureTextEntry={true}/>
         
-        <CustomButton text="Register" onPress={onRegisterPressed} />
+        <CustomButton text="Register" onPress={() => this.onRegisterPressed()} />
 
          <CustomButton
           text="Have an account? Sign in" 
-          onPress={onSignInPress} 
+          onPress={onSignInPressed} 
           type="TERTIARY"  
-        />
+        /> 
 
       </SafeAreaView>
       </ScrollView>
     );
+  }
 };
 
-const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
     root: {
         alignItems: 'center',
         padding: 20,

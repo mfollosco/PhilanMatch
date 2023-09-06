@@ -8,28 +8,33 @@ import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 import HomeScreen from './src/screens/HomeScreen/indexHS';
 
 function App() {
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
+  // const [initializing, setInitializing] = useState(true);
+  // const [user, setUser] = useState();
 
-  //Handle user state changes 
-  function onAuthStateChanged(user) {
-    setUser(user);
-    if (initializing) setInitializing(false);
+  // //Handle user state changes 
+  // function onAuthStateChanged(user) {
+  //   setUser(user);
+  //   if (initializing) setInitializing(false);
+  // }
+
+  // useEffect(() => {
+  //   const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
+  //   return subscriber;
+  // }, []);
+
+  // if (initializing) return null;
+
+  // if(!user) {
+  //   return(SignInScreen, SignUpScreen);
+  // }
+  // return(
+  //   HomeScreen
+  // );
+
+  if(firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig)
+    
   }
-
-  useEffect(() => {
-    const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
-  }, []);
-
-  if (initializing) return null;
-
-  if(!user) {
-    return(SignInScreen, SignUpScreen);
-  }
-  return(
-    HomeScreen
-  );
 }
 
 export default () => {
