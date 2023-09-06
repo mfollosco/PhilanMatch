@@ -1,10 +1,11 @@
 //import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect }from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 import Navigation from './src/navigation/indexNav';
 import { firebase } from './config'
 import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+import HomeScreen from './src/screens/HomeScreen/indexHS';
 
 function App() {
   const [initializing, setInitializing] = useState(true);
@@ -26,6 +27,9 @@ function App() {
   if(!user) {
     return(SignInScreen, SignUpScreen);
   }
+  return(
+    HomeScreen
+  );
 }
 
 export default () => {

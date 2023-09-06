@@ -13,8 +13,8 @@ const SignInScreen = () => {
   const {height} = useWindowDimensions();
   const navigation = useNavigation();
 
-  signInUser = async (email, password) =>{
-      try{
+  signInUser = async (email, password) => {
+      try {
         await firebase.auth().signInWithEmailAndPassword(email,password)
       } catch (error){
         alert(error.message)
@@ -24,12 +24,12 @@ const SignInScreen = () => {
       }
   }
 
-  const onSignInPressed = () => {
-    //console.warn('Sign in');
-    //validate user
-    signInUser(email, password)
-    //navigation.navigate('Home');
-  }; 
+  // const onSignInPressed = () => {
+  //   //console.warn('Sign in');
+  //   //validate user
+  //   signInUser(email, password)
+  //   //navigation.navigate('Home');
+  // }; 
 
   const onForgotPassswordPressed = () => {
     //console.warn('onForgotPasswordPressed');
@@ -61,7 +61,7 @@ const SignInScreen = () => {
         autoCapitalize= "none"
         />
   
-        <CustomButton text="Sign In" onPress={onSignInPressed} />
+        <CustomButton text="Sign In" onPress={()=> signInUser(email, password)} />
         <CustomButton
           text="Forgot password?" 
           onPress={onForgotPassswordPressed} 
