@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, View, StyleSheet, Pressable } from 'react-native'
 
-const CustomButton = ({ fun,text, type = "PRIMARY" }) => {
+const CustomButton = ({ text, type = "PRIMARY" }) => {
     return (
-      <Pressable onPress={ fun } style={[styles.container, styles[`container_${type}`]]}>
+      <Pressable  style={[styles.container, styles[`container_${type}`]]}>
         <Text style={[styles.text, styles[`text_${type}`]]}> {text} </Text>
       </Pressable>
     );

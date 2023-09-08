@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
+import { Text, SafeAreaView, StyleSheet, ScrollView, Button, TextInput } from 'react-native';
 import CustomInput from '../../components/CustomInput/indexCI';
 import CustomButton from '../../components/CustomButton/indexCB';
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../../../config';
 
-const navigation = useNavigation();
+
 
 export class SignUpScreen extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ export class SignUpScreen extends Component {
   // const [password, setPassword] = useState('');
   // const [passwordRepeat, setPasswordRepeat] = useState('');
 
-
+  //const navigation = useNavigation();
 
   onRegisterPressed() {
     //console.warn('onRegisterPressed');
@@ -36,31 +36,26 @@ export class SignUpScreen extends Component {
     .catch((error) => {
       console.log(error)
     })
-  }; 
+  }
   
   // onSignInPress = () => {
   //   //console.warn('onSignInPress');
   //   navigation.navigate('SignIn');
   // }; 
   render(){
-  return (
+    return (
       <ScrollView>
       <SafeAreaView style={styles.root}>
         <Text style={styles.title}>Create an account</Text>
        
 
-        <CustomInput placeholder="Username" onChangeText={(username) => this.setState({ username })}/>
-        <CustomInput placeholder="Email" onChangeText={(email) => this.setState({ email })}/>
-        <CustomInput placeholder="Password" onChangeText={(password) => this.setState({ password })} secureTextEntry={true}/>
-        <CustomInput placeholder="Repeat Password" onChangeText={(passwordRepeat) => this.setState({ passwordRepeat })} secureTextEntry={true}/>
+        <TextInput placeholder="Username" onChangeText={(username) => this.setState({ username })}/>
+        <TextInput placeholder="Email" onChangeText={(email) => this.setState({ email })}/>
+        <TextInput placeholder="Password" onChangeText={(password) => this.setState({ password })} secureTextEntry={true}/>
+        <TextInput placeholder="Repeat Password" onChangeText={(passwordRepeat) => this.setState({ passwordRepeat })} secureTextEntry={true}/>
         
-        <CustomButton text="Register" onPress={() => this.onRegisterPressed()} />
+        <Button title="Register" onPress={() => this.onRegisterPressed()} />
 
-         <CustomButton
-          text="Have an account? Sign in" 
-          onPress={onSignInPressed} 
-          type="TERTIARY"  
-        /> 
 
       </SafeAreaView>
       </ScrollView>

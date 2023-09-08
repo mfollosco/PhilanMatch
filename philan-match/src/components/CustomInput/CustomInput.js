@@ -5,7 +5,7 @@ const CustomInput = ({field, placeholder, secureTextEntry}) => {
     return (
       <View style={styles.container}>
       <TextInput
-        onChangeText= {field => this.setState({ field })}
+        onChangeText= {field}
         placeholder={placeholder} 
         style={styles.input} 
         secureTextEntry={secureTextEntry}
