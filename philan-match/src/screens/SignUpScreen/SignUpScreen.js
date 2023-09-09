@@ -32,6 +32,7 @@ export class SignUpScreen extends Component {
     firebase.auth().createUserWithEmailAndPassword(email,password)
     .then((result) => {
       console.log(result)
+    
     })
     .catch((error) => {
       console.log(error)
@@ -49,12 +50,12 @@ export class SignUpScreen extends Component {
         <Text style={styles.title}>Create an account</Text>
        
 
-        <TextInput placeholder="Username" onChangeText={(username) => this.setState({ username })}/>
-        <TextInput placeholder="Email" onChangeText={(email) => this.setState({ email })}/>
-        <TextInput placeholder="Password" onChangeText={(password) => this.setState({ password })} secureTextEntry={true}/>
-        <TextInput placeholder="Repeat Password" onChangeText={(passwordRepeat) => this.setState({ passwordRepeat })} secureTextEntry={true}/>
+        <CustomInput placeholder="Username" onChangeText={(username) => this.setState({ username })}/>
+        <CustomInput placeholder="Email" onChangeText={(email) => this.setState({ email })}/>
+        <CustomInput placeholder="Password" onChangeText={(password) => this.setState({ password })} secureTextEntry={true}/>
+        <CustomInput placeholder="Repeat Password" onChangeText={(passwordRepeat) => this.setState({ passwordRepeat })} secureTextEntry={true}/>
         
-        <Button title="Register" onPress={() => this.onRegisterPressed()} />
+        <CustomButton text="Register" onPress={() => this.onRegisterPressed()} />
 
 
       </SafeAreaView>
